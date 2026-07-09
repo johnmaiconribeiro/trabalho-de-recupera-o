@@ -1,15 +1,23 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #121212;
-    color: #ffffff;
+    color: #fff;
     height: 100vh;
     overflow: hidden;
 }
 
-.container { display: flex; height: calc(100vh - 90px); }
+.container {
+    display: flex;
+    height: calc(100vh - 90px);
+}
 
+/* Sidebar */
 .sidebar {
     width: 260px;
     background-color: #000;
@@ -17,19 +25,27 @@ body {
     overflow-y: auto;
 }
 
-.logo h1 { color: #1db954; font-size: 28px; margin-bottom: 30px; }
+.logo h1 {
+    color: #1db954;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
 
 .sidebar nav ul li {
     padding: 12px 0;
     font-size: 18px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-.sidebar nav ul li:hover { color: #1db954; }
+.sidebar nav ul li:hover {
+    color: #1db954;
+}
 
+/* Main */
 .main-content {
     flex: 1;
-    background: linear-gradient(#1f1f1f, #121212);
+    background: linear-gradient(to bottom, #1f1f1f, #121212);
     overflow-y: auto;
     padding: 20px;
 }
@@ -37,15 +53,17 @@ body {
 .top-nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 30px;
 }
 
 .search-bar {
-    background: #ffffff20;
+    background-color: rgba(255,255,255,0.1);
     border-radius: 30px;
     padding: 10px 20px;
     width: 420px;
     display: flex;
+    align-items: center;
 }
 
 .search-bar input {
@@ -54,11 +72,14 @@ body {
     color: white;
     width: 100%;
     outline: none;
+    font-size: 16px;
 }
 
+/* Hero */
 .hero {
     height: 320px;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/id/1015/1200/400') center/cover;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), 
+                url('https://picsum.photos/id/1015/1200/400') center/cover;
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -66,6 +87,7 @@ body {
     margin-bottom: 40px;
 }
 
+/* Cards */
 .songs-grid, .playlists-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -76,13 +98,13 @@ body {
     background: #181818;
     padding: 16px;
     border-radius: 8px;
-    transition: 0.3s;
+    transition: all 0.3s;
     cursor: pointer;
 }
 
 .song-card:hover, .playlist-card:hover {
     background: #282828;
-    transform: translateY(-4px);
+    transform: translateY(-5px);
 }
 
 .song-card img, .playlist-card img {
@@ -94,7 +116,7 @@ body {
 /* Player */
 .player {
     height: 90px;
-    background: #181818;
+    background-color: #181818;
     border-top: 1px solid #282828;
     display: flex;
     align-items: center;
@@ -104,17 +126,36 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    z-index: 100;
+}
+
+.now-playing {
+    display: flex;
+    align-items: center;
+    width: 280px;
+}
+
+.now-playing img {
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    margin-right: 14px;
 }
 
 .player-controls button {
     background: none;
     border: none;
     font-size: 26px;
-    margin: 0 12px;
+    margin: 0 10px;
     cursor: pointer;
     color: #b3b3b3;
 }
 
-.player-controls button:hover { color: white; }
+.player-controls button:hover {
+    color: white;
+}
 
-#progress-bar { width: 100%; accent-color: #1db954; }
+#progress-bar {
+    width: 100%;
+    accent-color: #1db954;
+}
